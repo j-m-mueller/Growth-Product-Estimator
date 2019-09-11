@@ -1,3 +1,6 @@
+# Parameter Estimation for Growth Curves including Substrate and Product
+# by J. M. Müller / 09/2019
+
 from scipy.integrate import odeint
 from scipy.optimize import minimize
 from scipy.optimize import differential_evolution
