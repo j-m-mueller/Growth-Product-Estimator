@@ -13,8 +13,8 @@ print("\nWelcome to the Growth and Product Estimator!\n")
 if __name__ == '__main__':
     # error minimization methods:
     if mode == 'opt_min':
-        result = minimize(estimator, tuple(params0), method='SLSQP')
-    elif mode == 'diff_eq':
+        result = minimize(least_square_calculator, tuple(params0), method='SLSQP')
+    elif mode == 'diff_evol':
         result = differential_evolution(least_square_calculator, bounds=parameter_bounds, disp=True)
     else:
         print("Please choose a valid optimization method (diff_eq or opt_min)!")

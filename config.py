@@ -1,7 +1,7 @@
 # config file:
 
 # mode of parameter estimation:
-mode = 'diff_eq'  # choose from 'diff_eq' (differential evolution) or 'opt_min' (optimize.minimize)
+mode = 'diff_evol'  # choose from 'diff_evol' (differential evolution) or 'opt_min' (optimize.minimize)
 data_file = './data/demo-data.csv'  # specify file name to be used for parameter estimation
 simulated_courses_file = './output/simulated-data.csv'  # file name to be used for simulated data
 
