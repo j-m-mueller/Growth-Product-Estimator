@@ -8,7 +8,7 @@ import sys
 from functions import model, error_calculator, plot_results, data_df
 from config import mode, simulated_courses_file
 
-print("\nWelcome to GrowthCalculator!\n")
+print("\nWelcome to the Growth and Product Estimator!\n")
 
 # initial parameter estimates:
 # initial concentration estimates:
