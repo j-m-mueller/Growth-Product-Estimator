@@ -2,8 +2,8 @@
 
 # mode of parameter estimation:
 mode = 'diff_eq'  # choose from 'diff_eq' (differential evolution) or 'opt_min' (optimize.minimize)
-data_file = 'demo-data.csv'  # specify file name to be used for parameter estimation
-simulated_courses_file = 'simulated-data.csv'  # file name to be used for simulated data
+data_file = './data/demo-data.csv'  # specify file name to be used for parameter estimation
+simulated_courses_file = './output/simulated-data.csv'  # file name to be used for simulated data
 
 # initial parameter estimates:
 mumax0 = 0.5  # maximal specific growth rate [e.g. in 1/h]
