@@ -75,7 +75,7 @@ def plot_results(data_df, sim_df):
     plt.fill_between(sim_df['t'], sim_df['P(mu)'], 0, facecolor='steelblue')
 
     plt.suptitle('Result of Parameter Estimation:')
-    plt.title('[proportions of P(X) and P(mu) plotted in light and dark blue, respectively]')
+    plt.title('[proportions of P(X) and P(µ) plotted in light and dark blue, respectively]')
     plt.xlabel('Time [h]')
     plt.ylabel('X / S [g/L] and P [mg/L]')
     plt.legend(['X (sim.)', 'S (sim.)', 'P (sim.)', 'X (data)', 'S (data)', 'P (data)'])

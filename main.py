@@ -26,7 +26,7 @@ if __name__ == '__main__':
     # print results to console:
     print("\nOptimization results:\n%s" % result)
     print("\nFinal parameters:")
-    print("µmax: %s, Y(X/S): %s, KS: %s, pX: %s, pmu: %s." % tuple(['{:.3f}'.format(param) for param in fin_params]))
+    print("µmax: %s, Y(X/S): %s, KS: %s, pX: %s, pµ: %s." % tuple(['{:.3f}'.format(param) for param in fin_params]))
 
     # simulate complete course with fitted parameters:
     t = np.linspace(0, 10, 100)
@@ -42,8 +42,9 @@ if __name__ == '__main__':
     prop_pmu_to_p = sim_df['P(mu)'].iloc[-1]/sim_df['P'].iloc[-1] * 100
 
     # print results:
-    print("\nFinal proportion of biomass-related product formation [P(X)]: %s%%, proportion of growth-related product"
-          " formation [P(mu)]: %s%%." % ('{:.2f}'.format(prop_px_to_p), '{:.2f}'.format(prop_pmu_to_p)))
+    print("\nFinal proportion of biomass-related product formation [secondary product, P(X)]: %s%%, proportion of"
+          " growth-related product formation [primary product, P(µ)]: %s%%."
+          % ('{:.2f}'.format(prop_px_to_p), '{:.2f}'.format(prop_pmu_to_p)))
 
     # save optimized courses of X, S, and P:
     sim_df.to_csv(simulated_courses_file, sep='\t')
