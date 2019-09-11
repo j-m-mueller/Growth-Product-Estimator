@@ -42,7 +42,7 @@ def model(vals, t, *args):
     return [dXdt, dSdt, dPXdt, dPmudt, dPdt]
 
 # calculation of model error:
-def error_calculator(params):
+def least_square_calculator(params):
     # convert parameters to tuple:
     params = tuple(params)
 

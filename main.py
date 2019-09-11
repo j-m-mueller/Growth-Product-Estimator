@@ -5,32 +5,17 @@ import numpy as np
 import pandas as pd
 import sys
 
-from functions import model, error_calculator, plot_results, data_df
-from config import mode, simulated_courses_file
+from functions import model, least_square_calculator, plot_results, data_df
+from config import mode, simulated_courses_file, params0, parameter_bounds
 
 print("\nWelcome to the Growth and Product Estimator!\n")
-
-# initial parameter estimates:
-# initial concentration estimates:
-X0, S0, P0 = 0.02, 20, 0
-
-# initial parameter estimates:
-mumax0 = 0.5
-YXS0 = 0.5
-KS0 = 0.05
-px0 = 0.2
-pmu0 = 0.4
-params0 = [mumax0, YXS0, KS0, px0, pmu0]
-
-# parameter bounds:
-parameter_bounds = [(0.01, 1), (0, 1), (0.01, 20), (0, 10000), (0, 10000)]
 
 if __name__ == '__main__':
     # error minimization methods:
     if mode == 'opt_min':
         result = minimize(estimator, tuple(params0), method='SLSQP')
     elif mode == 'diff_eq':
-        result = differential_evolution(error_calculator, bounds=parameter_bounds, disp=True)
+        result = differential_evolution(least_square_calculator, bounds=parameter_bounds, disp=True)
     else:
         print("Please choose a valid optimization method (diff_eq or opt_min)!")
         sys.exit()
