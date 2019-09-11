@@ -1,7 +1,20 @@
 **MONOD Parameter Estimator**
 -
 
-Simple Tool for Parameter Estimation according to a simple Monod Growth Kinetics including estimation of Product Formation based on a growth-associated term (*pmu*) and a purely biomass-based term (*pX*) according to the Luedeking-Piret equation. 
+Simple Tool for Parameter Estimation according based on the Monod Growth Kinetics including an estimation of Product Formation according to the Luedeking-Piret equation:
+
+* dX/dt = µ * X * S/(KS+S) 
+* dS/dt = dX/dt * -1/Y(X/S)
+* dP/dt = pX * X + pµ * dX/dt
+
+Parameters:
+* µ = maximal specific growth rate
+* X = biomass concentration
+* S = substrate concentration
+* KS = Monod constant
+* Y(X/S) = yield coefficient for biomass per substrate
+* pX = term for biomass-related product formation
+* pµ = term for growth-related product formation
 
 The data file can be specified in *config.py*. Please provide data in the form of a *.csv*-file containing the following headers:
 
