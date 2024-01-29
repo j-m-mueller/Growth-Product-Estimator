@@ -1,0 +1,23 @@
+# Parameters for modeling and I/O operations
+
+model:
+    estimation_mode: "diff_evol"  # choose from 'diff_evol' (differential evolution) and 'opt_min' (optimize.minimize from SciPy)
+    parameters:
+        initial_estimates:
+            mumax0: 0.5  # maximal specific growth rate [e.g. in 1/h]
+            YXS0: 0.5  # yield coefficient of biomass per substrate [dimensionless]
+            KS0: 0.05  # Monod constant [e.g. in g/L]
+            px0: 0.2  # term for biomass-related product formation (secondary product)
+            pmu0: 0.4  # term for growth-related product formation (primary product)
+        bounds: [
+            [0.01, 1], 
+            [0, 1], 
+            [0.01, 20],
+            [0, 10000], 
+            [0, 10000]
+        ]
+input_output:
+    input_path: './data/demo-data.csv'  # specify file name to be used for parameter estimation
+    output_path: './output/simulated-data.csv'  # file name to be used for simulated data
+    save_output: True  # turn on to trigger output DF storage
+    plot_output: True  # turn on to generate a plot
