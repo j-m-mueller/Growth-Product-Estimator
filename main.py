@@ -4,7 +4,7 @@
 import logging
 
 from estimator import Estimator
-from logger import logger
+from utils.logger import logger
 
 
 logger.info("Welcome to the Growth and Product Estimator!\n\n")
