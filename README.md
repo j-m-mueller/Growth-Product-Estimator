@@ -16,9 +16,7 @@ Parameters:
 * pX = term for biomass-related product formation
 * pµ = term for growth-related product formation
 
-Reads data from an input .csv file and estimates parameters based on provided initial estimates and bounds.
-
-Adjustments to paths and parameters can be made via *config.yml*.
+Reads data from an input .csv file and estimates parameters based on provided initial estimates and bounds. Adjustments to paths and parameters can be made via *config.yml*.
 
 The input *.csv* file is expected to have the columns:
 
@@ -26,6 +24,8 @@ The input *.csv* file is expected to have the columns:
 * X = biomass
 * S = substrate
 * P = product
+
+The algorithm for parameter estimation can also be changed via the configuration file. Note that the implementation of the *optimize.minimize* method doesn't allow providing bounds; therefore, the *differential evolution* approach for parameter estimation typically yields more reasonable results.
 
 Please run the *etc/demonstrator-notebook.ipynb* or execute *python main.py* for a demonstration.
 
