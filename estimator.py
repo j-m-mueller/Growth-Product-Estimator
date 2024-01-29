@@ -12,8 +12,8 @@ from scipy.integrate import odeint
 from scipy.optimize import minimize, differential_evolution
 from typing import List
 
-from config_model import ParameterConfig
-from logger import logger
+from utils.config_model import ParameterConfig
+from utils.logger import logger
 
 
 class Estimator:
@@ -107,8 +107,8 @@ class Estimator:
         sim_df = pd.concat([sim_df, course_df], axis=1)
     
         # calculate proportions of biomass- and growth-related product formation, respectively
-        prop_px_to_p = sim_df['P(X)'].iloc[-1] / sim_df['P'].iloc[-1] * 100
-        prop_pmu_to_p = sim_df['P(mu)'].iloc[-1] / sim_df['P'].iloc[-1] * 100
+        prop_px_to_p = sim_df['P(X)'].iloc[-1] / sim_df['P'].iloc[-1]
+        prop_pmu_to_p = sim_df['P(mu)'].iloc[-1] / sim_df['P'].iloc[-1]
     
         # log results
         logger.info(f"Product proportions:\n\n"
