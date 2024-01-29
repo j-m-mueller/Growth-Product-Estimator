@@ -92,10 +92,10 @@ class Estimator:
         course = odeint(self._model_values, 
                         [
                             self._input_data["X"].iloc[0], 
-                             self._input_data["S"].iloc[0], 
-                             self._input_data["P"].iloc[0]/2,
-                             self._input_data["P"].iloc[0]/2,
-                             self._input_data["P"].iloc[0]
+                            self._input_data["S"].iloc[0], 
+                            self._input_data["P"].iloc[0]/2,
+                            self._input_data["P"].iloc[0]/2,
+                            self._input_data["P"].iloc[0]
                         ],
                         t,
                         args=tuple(self._parameters))
@@ -106,7 +106,7 @@ class Estimator:
         sim_df = pd.DataFrame(t, columns=["t"])
         sim_df = pd.concat([sim_df, course_df], axis=1)
     
-        # calculate proportions of biomass- and growth-related product formation, respectively
+        # calculate final proportions of biomass- and growth-related product formation, respectively
         prop_px_to_p = sim_df['P(X)'].iloc[-1] / sim_df['P'].iloc[-1]
         prop_pmu_to_p = sim_df['P(mu)'].iloc[-1] / sim_df['P'].iloc[-1]
     
@@ -196,13 +196,19 @@ class Estimator:
         sns.set()
 
         # plot traces
-        for col, symbol_sim, symbol_input in zip(
+        for col, marker_sim, marker_input in zip(
             ['X', 'S', 'P'],
             ['k:', 'r--', 'b-'], 
             ['ko', 'ro', 'bo']
         ):
-            plt.plot(self._simulated_data['t'], self._simulated_data[col], symbol_sim, label=f"{col} (sim.)")
-            plt.plot(self._input_data['t'], self._input_data[col], symbol_input, label=f"{col} (data)")
+            plt.plot(self._simulated_data['t'], 
+                     self._simulated_data[col], 
+                     marker_sim,
+                     label=f"{col} (sim.)")
+            plt.plot(self._input_data['t'], 
+                     self._input_data[col], 
+                     marker_input, 
+                     label=f"{col} (data)")
 
         # highlight plot areas according to product terms
         plt.fill_between(self._simulated_data['t'], 
@@ -216,7 +222,9 @@ class Estimator:
     
         plt.suptitle('Growth Product Parameter Estimation')
         plt.title('Proportions of P(X) and P(µ) plotted in light and dark blue, respectively.')
+        
         plt.xlabel('Time [h]')
         plt.ylabel('X / S [g/L] and P [mg/L]')
+        
         plt.legend()
         plt.show()
