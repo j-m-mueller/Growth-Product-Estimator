@@ -1,7 +1,7 @@
 **MONOD Parameter Estimator**
 -
 
-Simple Tool for Parameter Estimation according based on the Monod Growth Kinetics including an estimation of Product Formation according to the Luedeking-Piret equation:
+Repository for Parameter Estimation according based on the Monod Growth Kinetics including an estimation of Product Formation according to the Luedeking-Piret equation:
 
 * dX/dt = µ * X * S/(KS+S) 
 * dS/dt = dX/dt * -1/Y(X/S)
@@ -16,12 +16,18 @@ Parameters:
 * pX = term for biomass-related product formation
 * pµ = term for growth-related product formation
 
-The data file can be specified in *config.py*. Please provide data in the form of a *.csv*-file containing the following headers:
+Reads data from an input .csv file and estimates parameters based on provided initial estimates and bounds.
+
+Adjustments to paths and parameters can be made via *config.yml*.
+
+The input *.csv* file is expected to have the columns:
 
 * t = time
 * X = biomass
 * S = substrate
 * P = product
+
+Please run the *demonstrator-notebook.ipynb* for a demonstration.
 
 Literature:
 * Jacques Monod. The Growth of Bacterial Cultures. Ann Rev Microbiol., 1949; 3:371.
