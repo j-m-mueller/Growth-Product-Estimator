@@ -27,7 +27,7 @@ The input *.csv* file is expected to have the columns:
 * S = substrate
 * P = product
 
-Please run the *demonstrator-notebook.ipynb* or execute *python main.py* for a demonstration.
+Please run the *etc/demonstrator-notebook.ipynb* or execute *python main.py* for a demonstration.
 
 Literature:
 * Jacques Monod. The Growth of Bacterial Cultures. Ann Rev Microbiol., 1949; 3:371.

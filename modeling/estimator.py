@@ -169,10 +169,10 @@ class Estimator:
         course = odeint(self._model_values, 
                         [
                             self._input_data["X"].iloc[0], 
-                             self._input_data["S"].iloc[0], 
-                             self._input_data["P"].iloc[0]/2,
-                             self._input_data["P"].iloc[0]/2,
-                             self._input_data["P"].iloc[0]
+                            self._input_data["S"].iloc[0], 
+                            self._input_data["P"].iloc[0]/2,
+                            self._input_data["P"].iloc[0]/2,
+                            self._input_data["P"].iloc[0]
                         ],
                         self._input_data["t"].tolist(), 
                         args=tuple(params))
@@ -201,8 +201,8 @@ class Estimator:
             ['k:', 'r--', 'b-'], 
             ['ko', 'ro', 'bo']
         ):
-            plt.plot(self._simulated_data['t'], self._simulated_data[col], symbol_sim)
-            plt.plot(self._input_data['t'], self._input_data[col], symbol_input)
+            plt.plot(self._simulated_data['t'], self._simulated_data[col], symbol_sim, label=f"{col} (sim.)")
+            plt.plot(self._input_data['t'], self._input_data[col], symbol_input, label=f"{col} (data)")
 
         # highlight plot areas according to product terms
         plt.fill_between(self._simulated_data['t'], 
@@ -218,5 +218,5 @@ class Estimator:
         plt.title('Proportions of P(X) and P(µ) plotted in light and dark blue, respectively.')
         plt.xlabel('Time [h]')
         plt.ylabel('X / S [g/L] and P [mg/L]')
-        plt.legend(['X (sim.)', 'S (sim.)', 'P (sim.)', 'X (data)', 'S (data)', 'P (data)'])
+        plt.legend()
         plt.show()
