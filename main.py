@@ -3,7 +3,7 @@
 
 import logging
 
-from estimator import Estimator
+from modeling.estimator import Estimator
 from utils.logger import logger
 
 
