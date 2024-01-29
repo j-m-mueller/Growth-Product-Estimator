@@ -1,5 +1,5 @@
 # Parameter Estimation for Growth Curves including Substrate and Product
-# by J. M. Müller / 09/2019
+# by J. M. Müller / 09/2019 - 01/2024
 
 import logging
 

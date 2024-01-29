@@ -32,3 +32,9 @@ Please run the *demonstrator-notebook.ipynb* for a demonstration.
 Literature:
 * Jacques Monod. The Growth of Bacterial Cultures. Ann Rev Microbiol., 1949; 3:371.
 * Luedeking R, Piret EL. A kinetic study of the lactic acid fermentation. Batch process at controlled pH. J Biochem Microbiol. 1959; 1:393–412.
+
+
+Update Log:
+
+- initial commit: 09/2019
+- major refactor, integration of config validation: 01/2024
