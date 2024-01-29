@@ -62,7 +62,7 @@ class Estimator:
                 logger.info("Estimating parameters via SciPy's optimize.minimize...\n")
                 results = minimize(
                     self._get_least_squares, 
-                    tuple(self._config.model.parameters.initial_estimates), 
+                    tuple(self._config.model.parameters.initial_estimates.dict().values()), 
                     method='SLSQP'
                 )
             case 'diff_evol':
