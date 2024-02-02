@@ -4,12 +4,14 @@ import logging
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 import pandas as pd
 import seaborn as sns
 import yaml
 
 from scipy.integrate import odeint
 from scipy.optimize import minimize, differential_evolution
+from pathlib import Path
 from typing import List
 
 from utils.config_model import ParameterConfig
@@ -117,6 +119,10 @@ class Estimator:
         
         # save optimized courses of X, S, and P
         if self._config.input_output.save_output:
+            parent_folder = Path(self._config.input_output.output_path).parent
+            if not os.path.exists(parent_folder):
+                os.makedirs(parent_folder)
+                
             sim_df.to_csv(self._config.input_output.output_path, sep='\t')
             logger.info(f"Stored simulated output at {self._config.input_output.output_path}\n")
 
